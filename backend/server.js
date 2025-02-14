@@ -12,10 +12,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/teacher_guardian', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log('MongoDB Connected'))
+mongoose.connect('mongodb+srv://admin:harshvardhan4114@cluster0.mongodb.net/teacher_guardian?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
 app.use('/api/users', userRoutes);
